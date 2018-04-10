@@ -202,7 +202,9 @@ More use case of the API can be found from the [FROST-Client documentation](http
 #### Specialization of the FROST-Client's entity builders
 
 The FUI StoreConnect Sensor API's client is based on the [FROST-Client](https://github.com/FraunhoferIOSB/FROST-Client) that provides an extensible [builder](https://en.wikipedia.org/wiki/Builder_pattern) for any [OGC SensorThings API's entity](http://docs.opengeospatial.org/is/15-078r6/15-078r6.html#24) to create.
-Thereby, the FUI StoreConnect Sensor API's client specializes FROST-Client's entities builders to match with the [FUI StoreConnect Sensor API's entities](https://github.com/StoreConnect/storeconnect-sensors-api#the-storeconnects-sensor-api-data-model).
+Thereby, the FUI StoreConnect Sensor API's client specializes FROST-Client's entities builders to match with the [FUI StoreConnect Sensor API's entities](https://github.com/StoreConnect/storeconnect-sensors-api#the-storeconnects-sensor-api-data-model):
+
+![FUI StoreConnect Sensor API's entity model](https://raw.githubusercontent.com/StoreConnect/storeconnect-sensors-api/master/resources/storeconnect-sensor-api-data-model.svg?sanitize=true)
 
 This way:
 
