@@ -17,8 +17,10 @@ package fr.inria.lille.storeconnect.sensors.api.client.model.feature.builder;
 
 import de.fraunhofer.iosb.ilt.sta.model.builder.api.ExtensibleBuilder;
 import fr.inria.lille.storeconnect.sensors.api.client.model.feature.GeometryTypedFeature;
+import fr.inria.lille.storeconnect.sensors.api.client.model.motion.FeatureProperty;
 import org.geojson.GeoJsonObject;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -38,13 +40,26 @@ public abstract class GeometryTypedFeatureBuilder<T extends GeoJsonObject, U ext
         return getSelf();
     }
 
-    public V property(final String key, final Object value) {
-        getBuildingInstance().setProperty(key, value);
+    public V property(final FeatureProperty property, final Object value) {
+        getBuildingInstance().setProperty(property.getName(), value);
         return getSelf();
     }
 
-    public V properties(final Map<String, Object> properties) {
-        getBuildingInstance().setProperties(properties);
+    public V properties(final Map<FeatureProperty, Object> properties) {
+        getBuildingInstance().setProperties(properties.entrySet()
+                .stream()
+                .reduce(
+                        new HashMap<>(),
+                        (acc, entry) -> {
+                            acc.put(entry.getKey().getName(), entry.getValue());
+                            return acc;
+                        },
+                        (map1, map2) -> {
+                            map1.putAll(map2);
+                            return map1;
+                        }
+                )
+        );
         return getSelf();
     }
 

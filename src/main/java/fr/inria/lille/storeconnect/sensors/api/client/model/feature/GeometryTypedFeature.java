@@ -25,7 +25,7 @@ import org.geojson.GeoJsonObject;
  * @param <T> the {@link GeoJsonObject} type that be only accepted as a {@link Feature#geometry} type by this {@link Feature}
  * @author Aurelien Bourdon
  */
-public class GeometryTypedFeature<T extends GeoJsonObject> extends Feature {
+public abstract class GeometryTypedFeature<T extends GeoJsonObject> extends Feature {
 
     @JsonIgnore
     private final Class<T> geometryType;

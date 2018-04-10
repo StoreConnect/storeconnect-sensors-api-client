@@ -18,6 +18,7 @@ package fr.inria.lille.storeconnect.sensors.api.client.model.feature;
 import org.geojson.LngLatAlt;
 import org.geojson.Point;
 import org.geojson.Polygon;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -32,20 +33,21 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @DisplayName("GeometryTypedFeature")
 public class GeometryTypedFeatureTest {
 
+    private GeometryTypedFeature<Polygon> geometryTypedFeature;
+
+    @BeforeEach
+    public void setUp() {
+        geometryTypedFeature = new GeometryTypedFeature<Polygon>(Polygon.class) {
+        };
+    }
+
     @Test
     @DisplayName("A GeometryTypedFeature can only handle its specified GeoJSON Geometry type as #geometry")
     public void testGeometryTypedFeatureWhenDefiningGeometry() {
-        final GeometryTypedFeature polygonFeature = new PolygonFeature();
         final Polygon polygon = new Polygon(new LngLatAlt(1.0, 2.0), new LngLatAlt(3.0, 4.0));
-        polygonFeature.setGeometry(polygon);
-        assertEquals(polygon, polygonFeature.getGeometry(), "A GeometryTypedFeature#geometry can be set by its specific GeoJSON Geometry type");
-        assertThrows(IllegalArgumentException.class, () -> polygonFeature.setGeometry(new Point()), "A GeometryTypedFeature can only handle its specified #geometry type");
-    }
-
-    private static class PolygonFeature extends GeometryTypedFeature<Polygon> {
-        protected PolygonFeature() {
-            super(Polygon.class);
-        }
+        geometryTypedFeature.setGeometry(polygon);
+        assertEquals(polygon, geometryTypedFeature.getGeometry(), "A GeometryTypedFeature#geometry can be set by its specific GeoJSON Geometry type");
+        assertThrows(IllegalArgumentException.class, () -> geometryTypedFeature.setGeometry(new Point()), "A GeometryTypedFeature can only handle its specified #geometry type");
     }
 
 }
