@@ -29,16 +29,24 @@
 
     <inceptionYear>2018</inceptionYear>
 
-    <organization>
-        <name>Inria Lille</name>
-        <url>https://www.inria.fr/centre/lille</url>
-    </organization>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>manual</distribution>
+        </license>
+    </licenses>
 
     <scm>
         <connection>scm:git:https://github.com/StoreConnect/sensorthings-api-client.git</connection>
         <developerConnection>scm:git:https://github.com/StoreConnect/sensorthings-api-client.git</developerConnection>
         <url>https://github.com/StoreConnect/sensorthings-api-client</url>
     </scm>
+
+    <organization>
+        <name>Inria Lille</name>
+        <url>https://www.inria.fr/centre/lille</url>
+    </organization>
 
     <developers>
         <developer>
@@ -71,6 +79,7 @@
     </properties>
 
     <repositories>
+        <!-- From which take the FROST-Client dependency -->
         <repository>
             <id>fraunhoferisob</id>
             <url>http://dl.bintray.com/fraunhoferiosb/Maven</url>
