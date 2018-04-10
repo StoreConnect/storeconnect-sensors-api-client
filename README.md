@@ -1,5 +1,7 @@
 # FUI StoreConnect Sensor API's client
 
+[![Build Status](https://travis-ci.org/StoreConnect/storeconnect-sensors-api-client.svg?branch=master)](https://travis-ci.org/StoreConnect/storeconnect-sensors-api-client)
+
 Java-based client library for the [FUI StoreConnect Sensor API](https://github.com/StoreConnect/storeconnect-sensors-api).
 
 Based on the [FROST-Client](https://github.com/FraunhoferIOSB/FROST-Client). 
