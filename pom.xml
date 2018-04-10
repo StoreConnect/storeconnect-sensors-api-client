@@ -1,0 +1,158 @@
+<!--
+
+    Copyright 2018 Inria Lille
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>fr.inria.lille.storeconnect.sensors.api</groupId>
+    <artifactId>storeconnect-sensors-api-client</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>storeconnect-sensors-api-client</name>
+    <url>https://github.com/StoreConnect/storeconnect-sensors-api-client</url>
+
+    <inceptionYear>2018</inceptionYear>
+
+    <organization>
+        <name>Inria Lille</name>
+        <url>https://www.inria.fr/centre/lille</url>
+    </organization>
+
+    <scm>
+        <connection>scm:git:https://github.com/StoreConnect/sensorthings-api-client.git</connection>
+        <developerConnection>scm:git:https://github.com/StoreConnect/sensorthings-api-client.git</developerConnection>
+        <url>https://github.com/StoreConnect/sensorthings-api-client</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>abourdon</id>
+            <name>Aurelien Bourdon</name>
+            <url>https://github.com/abourdon</url>
+            <roles>
+                <role>owner</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <properties>
+        <!-- Project configuration -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <!-- Dependencies versions -->
+        <frost-client.version>0.17</frost-client.version>
+        <geojson-jackson.version>1.8</geojson-jackson.version>
+        <junit-platform-launcher.version>1.1.0</junit-platform-launcher.version>
+        <junit-jupiter-engine.version>5.1.0</junit-jupiter-engine.version>
+        <junit-platform-surefire-provider.version>1.1.0</junit-platform-surefire-provider.version>
+        <slf4j-nop.version>1.7.25</slf4j-nop.version>
+
+        <!-- Plugins versions -->
+        <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+        <license-maven-plugin.version>3.0</license-maven-plugin.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>fraunhoferisob</id>
+            <url>http://dl.bintray.com/fraunhoferiosb/Maven</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!-- Compile scope -->
+        <dependency>
+            <groupId>de.fraunhofer.iosb.ilt</groupId>
+            <artifactId>FROST-Client</artifactId>
+            <version>${frost-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.grundid.opendatalab</groupId>
+            <artifactId>geojson-jackson</artifactId>
+            <version>${geojson-jackson.version}</version>
+        </dependency>
+
+        <!-- Test scope -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-launcher</artifactId>
+            <version>${junit-platform-launcher.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit-jupiter-engine.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>${slf4j-nop.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.junit.platform</groupId>
+                        <artifactId>junit-platform-surefire-provider</artifactId>
+                        <version>${junit-platform-surefire-provider.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>com.mycila</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>${license-maven-plugin.version}</version>
+                <configuration>
+                    <header>${basedir}/LICENSE.HEADER</header>
+                    <properties>
+                        <license.year>${project.inceptionYear}</license.year>
+                        <license.organization>${project.organization.name}</license.organization>
+                    </properties>
+                    <includes>
+                        <include>**/*.java</include>
+                        <include>pom.xml</include>
+                    </includes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>check-license-headers</id>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <phase>prepare-package</phase>
+                        <configuration>
+                            <strictCheck>true</strictCheck>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
