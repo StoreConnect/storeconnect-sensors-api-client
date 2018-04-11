@@ -16,6 +16,7 @@
 package fr.inria.lille.storeconnect.sensors.api.client.model.feature;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import org.geojson.Feature;
 import org.geojson.GeoJsonObject;
 
@@ -25,6 +26,7 @@ import org.geojson.GeoJsonObject;
  * @param <T> the {@link GeoJsonObject} type that be only accepted as a {@link Feature#geometry} type by this {@link Feature}
  * @author Aurelien Bourdon
  */
+@JsonTypeName("Feature")
 public abstract class GeometryTypedFeature<T extends GeoJsonObject> extends Feature {
 
     @JsonIgnore
