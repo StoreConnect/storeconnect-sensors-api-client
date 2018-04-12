@@ -8,7 +8,17 @@ Based on the [FROST-Client](https://github.com/FraunhoferIOSB/FROST-Client).
 
 ## How to get it
 
-Under submission to Maven Central.
+### Maven Central
+
+Under submission to [Maven Central](https://search.maven.org/).
+
+### Compile from sources
+
+Package can be built and installed by executing the following [Maven](https://maven.apache.org/) command from the root folder:
+
+```bash
+$ mvn install
+```
 
 ## How to use it
 
