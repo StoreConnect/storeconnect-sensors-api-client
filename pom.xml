@@ -75,7 +75,7 @@
 
         <!-- Plugins versions -->
         <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
-        <maven-sources-plugin.version>3.0.1</maven-sources-plugin.version>
+        <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
         <maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
         <maven-deploy-plugin.version>2.7</maven-deploy-plugin.version>
         <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
@@ -132,16 +132,12 @@
                     <version>${maven-release-plugin.version}</version>
                 </plugin>
                 <plugin>
-                    <artifactId>maven-sources-plugin</artifactId>
-                    <version>${maven-sources-plugin.version}</version>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${maven-source-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>${maven-javadoc-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>${maven-deploy-plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
