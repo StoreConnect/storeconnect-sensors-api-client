@@ -49,14 +49,18 @@ public final class FeatureUtils {
      * Check pass iif:
      * <ul>
      * <li>{@code failIfMissing} is {@code false}</li>
+     * <li>
      * <ul>
      * <li>AND the given {@link Feature} does not contains a property with a name equals to the given {@link FeatureProperty#name}</li>
      * </ul>
+     * </li>
      * <li>OR {@code failIfMissing} is {@code true}</li>
+     * <li>
      * <ul>
      * <li>AND the given {@link Feature} contains a property with a name equals to the given {@link FeatureProperty#name}</li>
      * <li>AND the {@link Feature}'s property with the name equals to the given {@link FeatureProperty#name} has a value type assignable from {@link FeatureProperty#valueType}</li>
      * </ul>
+     * </li>
      * </ul>
      *
      * @param from          the {@link Feature} from which checking the associated {@link Feature#properties}
