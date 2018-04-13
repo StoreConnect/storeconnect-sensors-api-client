@@ -20,7 +20,7 @@
 
     <groupId>fr.inria.lille.storeconnect.sensors.api</groupId>
     <artifactId>storeconnect-sensors-api-client</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.2</version>
     <packaging>jar</packaging>
 
     <name>storeconnect-sensors-api-client</name>
@@ -40,7 +40,7 @@
         <connection>scm:git:https://github.com/StoreConnect/sensorthings-api-client.git</connection>
         <developerConnection>scm:git:git@github.com:StoreConnect/storeconnect-sensors-api-client.git</developerConnection>
         <url>https://github.com/StoreConnect/sensorthings-api-client</url>
-      <tag>HEAD</tag>
+      <tag>storeconnect-sensors-api-client-0.2</tag>
   </scm>
 
     <organization>
