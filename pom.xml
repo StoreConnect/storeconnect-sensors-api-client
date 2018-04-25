@@ -24,6 +24,7 @@
     <packaging>jar</packaging>
 
     <name>storeconnect-sensors-api-client</name>
+    <description>Java-based client library for the FUI StoreConnect Sensors API</description>
     <url>https://github.com/StoreConnect/storeconnect-sensors-api-client</url>
 
     <inceptionYear>2018</inceptionYear>
@@ -40,8 +41,8 @@
         <connection>scm:git:https://github.com/StoreConnect/sensorthings-api-client.git</connection>
         <developerConnection>scm:git:git@github.com:StoreConnect/storeconnect-sensors-api-client.git</developerConnection>
         <url>https://github.com/StoreConnect/sensorthings-api-client</url>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <organization>
         <name>Inria Lille</name>
@@ -61,6 +62,7 @@
 
     <properties>
         <!-- Project configuration -->
+        <ossrh.url>https://oss.sonatype.org</ossrh.url>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -79,8 +81,17 @@
         <maven-javadoc-plugin.version>3.0.0</maven-javadoc-plugin.version>
         <maven-deploy-plugin.version>2.7</maven-deploy-plugin.version>
         <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <license-maven-plugin.version>3.0</license-maven-plugin.version>
+        <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>ossrh</id>
+            <url>${ossrh.url}/service/local/staging/deploy/maven2</url>
+        </repository>
+    </distributionManagement>
 
     <repositories>
         <!-- From which take the FROST-Client dependency -->
@@ -139,6 +150,20 @@
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>${maven-javadoc-plugin.version}</version>
                 </plugin>
+                <plugin>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>${maven-gpg-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.mycila</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <version>${license-maven-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.sonatype.plugins</groupId>
+                    <artifactId>nexus-staging-maven-plugin</artifactId>
+                    <version>${nexus-staging-maven-plugin.version}</version>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -156,7 +181,6 @@
             <plugin>
                 <groupId>com.mycila</groupId>
                 <artifactId>license-maven-plugin</artifactId>
-                <version>${license-maven-plugin.version}</version>
                 <configuration>
                     <header>${basedir}/LICENSE.HEADER</header>
                     <properties>
@@ -181,14 +205,74 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- Execute a Maven Central compliant release (for more details see the release profile) -->
             <plugin>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>${maven-deploy-plugin.version}</version>
+                <artifactId>maven-release-plugin</artifactId>
                 <configuration>
-                    <skip>true</skip>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <goals>deploy</goals>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <!--
+                Configuration for a Maven Central compliant release.
+                Automatically triggered when a release is being executed
+            -->
+            <id>release</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>${ossrh.url}</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>

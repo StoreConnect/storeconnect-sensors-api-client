@@ -8,9 +8,15 @@ Based on the [FROST-Client](https://github.com/FraunhoferIOSB/FROST-Client).
 
 ## How to get it
 
-### Maven Central
+### Via Maven Central
 
-Under submission to [Maven Central](https://search.maven.org/).
+```xml
+<depedency>
+    <groupId>com.github.storeconnect</groupId>
+    <artifactId>storeconnect-sensors-api-client</artifactId>
+    <version>0.3</version>
+</depedency>
+```
 
 ### Compile from sources
 
