@@ -15,9 +15,9 @@
  */
 package com.github.storeconnect.sensors.api.client.model.feature.builder;
 
-import de.fraunhofer.iosb.ilt.sta.model.builder.api.ExtensibleBuilder;
 import com.github.storeconnect.sensors.api.client.model.feature.GeometryTypedFeature;
 import com.github.storeconnect.sensors.api.client.model.motion.FeatureProperty;
+import de.fraunhofer.iosb.ilt.sta.model.builder.api.ExtensibleBuilder;
 import org.geojson.GeoJsonObject;
 
 import java.util.HashMap;

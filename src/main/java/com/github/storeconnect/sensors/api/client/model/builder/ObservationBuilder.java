@@ -15,9 +15,9 @@
  */
 package com.github.storeconnect.sensors.api.client.model.builder;
 
+import com.github.storeconnect.sensors.api.client.model.ObservationResult;
 import de.fraunhofer.iosb.ilt.sta.model.builder.api.AbstractObservationBuilder;
 import de.fraunhofer.iosb.ilt.sta.model.builder.api.BuildingException;
-import com.github.storeconnect.sensors.api.client.model.ObservationResult;
 
 /**
  * Base class for any StoreConnect Sensor API's {@link de.fraunhofer.iosb.ilt.sta.model.builder.ObservationBuilder}

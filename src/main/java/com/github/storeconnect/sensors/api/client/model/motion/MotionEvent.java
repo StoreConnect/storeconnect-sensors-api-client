@@ -16,8 +16,8 @@
 package com.github.storeconnect.sensors.api.client.model.motion;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.github.storeconnect.sensors.api.client.model.feature.PointFeature;
 import com.github.storeconnect.sensors.api.client.model.ObservationResult;
+import com.github.storeconnect.sensors.api.client.model.feature.PointFeature;
 
 /**
  * Human motion caught by a StoreConnect's {@link de.fraunhofer.iosb.ilt.sta.model.Sensor}

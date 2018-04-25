@@ -15,10 +15,10 @@
  */
 package com.github.storeconnect.sensors.api.client.model.motion.builder;
 
-import de.fraunhofer.iosb.ilt.sta.model.builder.api.AbstractBuilder;
 import com.github.storeconnect.sensors.api.client.model.feature.PointFeature;
 import com.github.storeconnect.sensors.api.client.model.motion.MotionEvent;
 import com.github.storeconnect.sensors.api.client.model.motion.MotionSubject;
+import de.fraunhofer.iosb.ilt.sta.model.builder.api.AbstractBuilder;
 
 /**
  * A {@link MotionEvent} {@link de.fraunhofer.iosb.ilt.sta.model.builder.api.Builder}

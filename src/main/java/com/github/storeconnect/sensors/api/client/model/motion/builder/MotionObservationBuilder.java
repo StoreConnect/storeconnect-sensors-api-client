@@ -15,12 +15,12 @@
  */
 package com.github.storeconnect.sensors.api.client.model.motion.builder;
 
-import de.fraunhofer.iosb.ilt.sta.model.Observation;
-import de.fraunhofer.iosb.ilt.sta.model.builder.api.BuildingException;
 import com.github.storeconnect.sensors.api.client.model.builder.ObservationBuilder;
 import com.github.storeconnect.sensors.api.client.model.motion.FeatureProperty;
 import com.github.storeconnect.sensors.api.client.model.motion.MotionEvent;
 import com.github.storeconnect.sensors.api.client.util.FeatureUtils;
+import de.fraunhofer.iosb.ilt.sta.model.Observation;
+import de.fraunhofer.iosb.ilt.sta.model.builder.api.BuildingException;
 
 /**
  * A {@link MotionEvent} {@link ObservationBuilder}

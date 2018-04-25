@@ -15,9 +15,9 @@
  */
 package com.github.storeconnect.sensors.api.clent.model.builder;
 
+import com.github.storeconnect.sensors.api.client.model.ObservationResult;
 import com.github.storeconnect.sensors.api.client.model.builder.ObservationBuilder;
 import de.fraunhofer.iosb.ilt.sta.model.builder.api.BuildingException;
-import com.github.storeconnect.sensors.api.client.model.ObservationResult;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

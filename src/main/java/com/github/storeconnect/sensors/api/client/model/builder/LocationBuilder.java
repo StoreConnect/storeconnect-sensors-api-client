@@ -17,10 +17,10 @@ package com.github.storeconnect.sensors.api.client.model.builder;
 
 import com.github.storeconnect.sensors.api.client.model.feature.PointFeature;
 import com.github.storeconnect.sensors.api.client.model.motion.FeatureProperty;
+import com.github.storeconnect.sensors.api.client.util.FeatureUtils;
 import de.fraunhofer.iosb.ilt.sta.model.Location;
 import de.fraunhofer.iosb.ilt.sta.model.builder.api.AbstractLocationBuilder;
 import de.fraunhofer.iosb.ilt.sta.model.builder.api.BuildingException;
-import com.github.storeconnect.sensors.api.client.util.FeatureUtils;
 import org.geojson.Point;
 
 /**

@@ -15,8 +15,8 @@
  */
 package com.github.storeconnect.sensors.api.client.model.motion.builder;
 
-import de.fraunhofer.iosb.ilt.sta.model.builder.api.AbstractBuilder;
 import com.github.storeconnect.sensors.api.client.model.motion.MotionSubject;
+import de.fraunhofer.iosb.ilt.sta.model.builder.api.AbstractBuilder;
 
 /**
  * A {@link MotionSubject} {@link de.fraunhofer.iosb.ilt.sta.model.builder.api.Builder}
